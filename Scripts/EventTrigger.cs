@@ -27,6 +27,10 @@ public class EventTrigger : MonoBehaviour
         
        
     }
+    void OnTriggerExit(Collider Other)
+    {
+        Other.isTrigger = false;
+    }
     // Start is called before the first frame update
     void Start()
     {
