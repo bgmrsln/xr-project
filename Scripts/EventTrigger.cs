@@ -7,6 +7,7 @@ public class EventTrigger : MonoBehaviour
 {
     public UnityEvent onTrigger;
     public bool destroyAfterTrigger = true;
+    public Collider coll;
 
     void awake()
     {
@@ -18,11 +19,18 @@ public class EventTrigger : MonoBehaviour
     void OnTriggerEnter(Collider Other)
     {
         onTrigger.Invoke();
+        coll.attachedRigidbody.useGravity = true;
+        Other.isTrigger = true;
+        coll.isTrigger = false;
+        
+      
+        
        
     }
     // Start is called before the first frame update
     void Start()
     {
+        coll = GetComponent<Collider>();
         
     }
 

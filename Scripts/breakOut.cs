@@ -5,30 +5,38 @@ using UnityEngine;
 public class breakOut : MonoBehaviour
 {
     private Transform tf;
-    public Vector3 nextPosition;
+    public Vector3 nextPosition = new Vector3(0,1,-40);
+    
     // Start is called before the first frame update
     void Start()
     {
         tf = GetComponent<Transform>();
-        nextPosition = new Vector3(0, 1, -10);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //OVRInput.Get(OVRInput.Button.One)
-        if (Input.GetKeyDown(KeyCode.Space))
+        //OVRInput.Update();
+        if (OVRInput.GetDown(OVRInput.Button.One))
         {
-            if (tf.localPosition == nextPosition) {
-                tf.SetPositionAndRotation(new Vector3(0,1,0), tf.localRotation);
+            if (tf.localPosition == nextPosition)
+            {
+                tf.position = new Vector3(0, 1, 0);
+
             }
             else
             {
-                tf.SetPositionAndRotation(nextPosition, tf.localRotation);
+                tf.position = nextPosition;
             }
 
-            
+
         }
         
+        //OVRInput.Get(OVRInput.Button.One)
+        //Input.GetKeyDown(KeyCode.Space)
+     
+       
     }
+    
 }

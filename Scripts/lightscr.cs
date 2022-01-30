@@ -19,8 +19,11 @@ public class lightscr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //OVRInput.Get(OVRInput.Button.Two)
-        if (Input.GetKeyDown(KeyCode.Tab))
+        //OVRInput.Update();
+        //OVRInput.FixedUpdate();
+        //Input.GetKeyDown(KeyCode.Tab)
+        //two is B or Y
+        if (OVRInput.GetDown(OVRInput.Button.Two))
         {
             light.color = new Color(red,green, blue, alpha);
             red = Random.Range(0f,1f);
@@ -28,6 +31,7 @@ public class lightscr : MonoBehaviour
             blue = Random.Range(0f, 1f);
             
         }
+        
         
     }
 }
